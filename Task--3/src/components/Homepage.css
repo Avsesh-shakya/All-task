@@ -1,0 +1,45 @@
+.homepage{
+    padding-top: 100px;
+ 
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+.homepage h1{
+  
+   font-weight: 700;
+   color: rgb(150, 146, 146);
+   font-family: sans-serif;
+}
+.main-entry{
+    margin-bottom: 50px;
+    font-weight: 600;
+    gap: 20px;
+    font-size: 18px;
+}
+.main-entry input{
+    margin-left: 10px;
+    height: 25px;
+    border-radius: 10px;
+    padding: 2px;
+    font-weight: 700;
+    
+}
+.main-entry button{
+
+   width: 100px;
+   margin: 10px;
+   height: 30px;
+   background: rgb(245, 166, 166);
+   cursor: pointer;
+   border: none;
+   font-weight: 600;
+
+    
+}
+.responce{
+    border: 1px solid grey;
+    padding: 20px;
+    display: inline-block;
+    border-radius: 5px;
+}

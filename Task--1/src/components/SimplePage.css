@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #f4f4f4;
+}
+.editable {
+    background-color: #eaf4fc;
+    border: 1px dashed #007BFF;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+button{
+    height: 30px;
+    border-radius: 20px;
+    width: 200px;
+    background: #65f0f8;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+button:hover{
+    height: 30px;
+    border-radius: 20px;
+    width: 200px;
+    background: #f2e8b2;
+    border: 2px solid #dddddd;
+    outline: none;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+}

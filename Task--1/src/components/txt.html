@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Editable Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .editable {
+            background-color: #eaf4fc;
+            border: 1px dashed #007BFF;
+            padding: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>Editable Table with React</h1>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <script>
+        const { useState } = React;
+
+        const EditableTable = () => {
+            const [data, setData] = useState([
+                { id: 1, name: "Alice Brown", age: 28, email: "alice@example.com" },
+                { id: 2, name: "Bob White", age: 32, email: "bob@example.com" },
+                { id: 3, name: "Charlie Green", age: 40, email: "charlie@example.com" },
+            ]);
+
+            const handleChange = (id, field, value) => {
+                const updatedData = data.map((row) =>
+                    row.id === id ? { ...row, [field]: value } : row
+                );
+                setData(updatedData);
+            };
+
+            const handleSave = () => {
+                // Simulate preparing data for API call
+                console.log("Data ready to post:", data);
+                alert("Data is ready to post to the API! Check console for details.");
+            };
+
+            return (
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {data.map((row) => (
+                                <tr key={row.id}>
+                                    <td>{row.id}</td>
+                                    <td>
+                                        <input
+                                            className="editable"
+                                            type="text"
+                                            value={row.name}
+                                            onChange={(e) => handleChange(row.id, "name", e.target.value)}
+                                        />
+                                    </td>
+                                    <td>
+                                        <input
+                                            className="editable"
+                                            type="number"
+                                            value={row.age}
+                                            onChange={(e) => handleChange(row.id, "age", e.target.value)}
+                                        />
+                                    </td>
+                                    <td>
+                                        <input
+                                            className="editable"
+                                            type="email"
+                                            value={row.email}
+                                            onChange={(e) => handleChange(row.id, "email", e.target.value)}
+                                        />
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                    <button onClick={handleSave}>Save Data</button>
+                </div>
+            );
+        };
+
+        ReactDOM.createRoot(document.getElementById("root")).render(<EditableTable />);
+    </script>
+</body>
+</html>
